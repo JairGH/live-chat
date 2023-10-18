@@ -5,19 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyChat</title>
+    <script type="module">
+      import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js";
+
+      const socket = io();
+    </script>
     <style>
       body {
         display: grid;
         place-content: center;
-        height: 100vh;
+        height: 95vh;
         padding: 30px;
         grid-template-rows: 1fr;
         background: black;
         color: white;
       }
+      #chat {
+        border: 2px solid #00cc00;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 400px;
+        height: 100%;
+        position: relative;
+      }
     </style>
   </head>
   <body>
-    <h5>Hola Mundo</h5>
+    <section id="chat">
+      <form id="form">
+        <input
+          type="text"
+          name="message"
+          id="input"
+          placeholder="type a message"
+          autocomplete="off"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </section>
   </body>
 </html>

@@ -28,6 +28,32 @@
         height: 100%;
         position: relative;
       }
+      #form {
+        bottom: 0;
+        display: flex;
+        height: 48px;
+        left: 0;
+        right: 0;
+        padding: 4px;
+        position: absolute;
+      }
+      #form > button {
+        background-color: #00cc00;
+        color: white;
+        border: 0;
+        margin: 4px;
+        border-radius: 4px;
+      }
+      #input {
+        border-radius: 9999px;
+        border: 1px solid #00cc00;
+        flex: 1;
+        margin: 4px;
+        padding: 0 8px;
+      }
+      #input:focus {
+        outline: 0;
+      }
     </style>
   </head>
   <body>
@@ -37,7 +63,7 @@
           type="text"
           name="message"
           id="input"
-          placeholder="type a message"
+          placeholder="Type a message..."
           autocomplete="off"
         />
         <button type="submit">Send</button>

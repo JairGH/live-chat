@@ -3,6 +3,7 @@ import logger from "morgan";
 
 import { Server } from "socket.io";
 import { createServer } from "node:http";
+import { Socket } from "node:net";
 
 const port = process.env.PORT ?? 3000;
 
@@ -10,8 +11,12 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-io.on("connection", () => {
+io.on("connection", (socket) => {
   console.log("a user has connected!");
+
+  socket.on("disconnect", () => {
+    console.log("an user has disconnect!");
+  });
 });
 
 app.use(logger("dev"));

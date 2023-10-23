@@ -3,7 +3,6 @@ import logger from "morgan";
 
 import { Server } from "socket.io";
 import { createServer } from "node:http";
-import { Socket } from "node:net";
 
 const port = process.env.PORT ?? 3000;
 
@@ -16,6 +15,11 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log("an user has disconnect!");
+  });
+
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg);
+    console.log(msg);
   });
 });
 
